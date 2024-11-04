@@ -5,7 +5,8 @@ const imgContainer = document.getElementById("gif-container");
 const getImage = async () => {
   const res = await fetch(`/api/gifs?search=${input.value}`);
   const data = await res.json();
-  const imgSrc = data.data[0].images.original.webp;
+  const randomNum = Math.floor(Math.random() * 4)
+  const imgSrc = data.data[randomNum].images.original.webp;
 
   imgContainer.src = imgSrc;
 };
